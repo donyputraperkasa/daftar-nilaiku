@@ -35,14 +35,21 @@ body {
   font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
-/* Kontainer Proporsional - Rapi di Tengah & Tidak Melebar Ekstrem */
+/* Kontainer Responsif: 100% pada HP, max 1200px pada Desktop */
 .container {
   width: 100%;
-  max-width: 1180px;
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
 }
 
 /* Classic Surfaces and Cards */
@@ -102,28 +109,42 @@ body {
   background: #f8fbff;
 }
 
-/* Classic Table Style - Rapi, Proporsional, & Pas di Tengah */
+/* Classic Table Style - Responsif HP (Smooth Scroll & Sticky Kolom Nama) */
 .classic-table-wrap {
   width: 100%;
   border: 1px solid #cbdbee;
   border-radius: 12px;
   background: #ffffff;
   box-shadow: 0 2px 8px rgba(15, 42, 79, 0.05);
-  overflow: hidden;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .classic-table {
   width: 100%;
-  border-collapse: collapse;
+  min-width: 780px; /* Memastikan kolom tidak terjepit di layar kecil HP */
+  border-collapse: separate;
+  border-spacing: 0;
   font-size: 13.5px;
   text-align: center;
 }
 
+@media (min-width: 1024px) {
+  .classic-table {
+    min-width: 100%;
+  }
+}
+
 .classic-table thead th {
-  border: 1px solid #cbdbee;
-  padding: 11px 6px;
+  border-bottom: 1px solid #cbdbee;
+  border-right: 1px solid #cbdbee;
+  padding: 12px 6px;
   font-weight: 700;
   white-space: nowrap;
+}
+
+.classic-table thead th:last-child {
+  border-right: none;
 }
 
 .classic-table thead tr.group-header th {
@@ -141,18 +162,55 @@ body {
 }
 
 .classic-table tbody td {
-  border: 1px solid #e2e8f0;
-  padding: 11px 4px;
+  border-bottom: 1px solid #e2e8f0;
+  border-right: 1px solid #e2e8f0;
+  padding: 12px 6px;
   color: #1e293b;
+  background-color: inherit;
+}
+
+.classic-table tbody td:last-child {
+  border-right: none;
 }
 
 .classic-table tbody tr:nth-child(even) {
   background-color: #f9fbfe;
 }
 
+.classic-table tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
 .classic-table tbody tr:hover {
   background-color: #edf4fe !important;
   cursor: pointer;
+}
+
+/* Sticky Column untuk HP: No & Nama Siswa tetap terlihat saat geser horizontal */
+@media (max-width: 768px) {
+  .sticky-col-no {
+    position: sticky !important;
+    left: 0 !important;
+    z-index: 5;
+  }
+  .sticky-col-name {
+    position: sticky !important;
+    left: 44px !important;
+    z-index: 5;
+    box-shadow: 3px 0 6px -2px rgba(15, 42, 79, 0.12);
+  }
+  thead .sticky-col-no, thead .sticky-col-name {
+    z-index: 8;
+  }
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* Print Styles */
@@ -170,6 +228,10 @@ body {
   .classic-table-wrap {
     border: 1px solid #000 !important;
     box-shadow: none !important;
+    overflow: visible !important;
+  }
+  .classic-table {
+    min-width: 100% !important;
   }
   .classic-table th, .classic-table td {
     border: 1px solid #444 !important;

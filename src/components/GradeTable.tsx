@@ -5,7 +5,7 @@ import {
   Crown, 
   Sparkles, 
   Info, 
-  BookOpen 
+  BookOpen
 } from 'lucide-react';
 import { 
   type StudentGrade, 
@@ -27,78 +27,78 @@ export const GradeTable: React.FC<GradeTableProps> = ({
   const totalStudents = students.length;
 
   return (
-    <div className="py-8 w-full">
-      {/* 1. Panduan Kategori Penilaian Visual - Ukuran Lebih Luas & Jelas */}
-      <div className="mb-6 rounded-2xl border border-[#dbe5f4] bg-white p-5 shadow-xs">
-        <div className="flex items-center gap-3 border-b border-[#edf2f8] pb-3 mb-4">
-          <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#0f2a4f] text-[#f2d35f]">
-            <Sparkles size={16} />
+    <div className="py-6 w-full">
+      {/* 1. Panduan Kategori Penilaian Visual */}
+      <div className="mb-4 rounded-xl border border-[#dbe5f4] bg-white p-3.5 sm:p-4 shadow-xs">
+        <div className="flex items-center gap-2 border-b border-[#edf2f8] pb-2.5 mb-3">
+          <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-[#0f2a4f] text-[#f2d35f]">
+            <Sparkles size={14} />
           </span>
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-wider text-[#0f2a4f]">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-[#0f2a4f]">
               Panduan Kategori Penilaian
             </h3>
-            <p className="text-xs text-[#617089]">
+            <p className="text-[11px] text-[#617089]">
               Kategori pencapaian nilai disajikan dalam logo visual dan lingkaran warna
             </p>
           </div>
         </div>
 
-        {/* 6 Category Items - Ukuran Besar & Nyaman Dibaca */}
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-6 text-xs">
+        {/* 6 Category Items */}
+        <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-6 text-xs">
           {/* 1. Emas (96 - 100) */}
-          <div className="flex items-center gap-3 rounded-xl border border-amber-300 bg-amber-50/80 p-3 text-amber-900 shadow-2xs">
-            <span className="relative flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-amber-200 to-yellow-400 text-amber-900 shadow-xs">
-              <Crown size={16} className="animate-pulse" />
+          <div className="flex items-center gap-2 rounded-lg border border-amber-300 bg-amber-50/70 p-2 text-amber-900">
+            <span className="relative flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-amber-200 to-yellow-400 text-amber-900 shadow-2xs">
+              <Crown size={13} className="animate-pulse" />
             </span>
             <div className="min-w-0">
-              <p className="font-bold text-sm leading-tight text-amber-900">Emas</p>
-              <p className="text-xs text-amber-700 font-mono font-semibold">96 - 100</p>
+              <p className="font-bold text-[11px] leading-tight text-amber-900">Emas</p>
+              <p className="text-[10px] text-amber-700 font-mono font-semibold">96 - 100</p>
             </div>
           </div>
 
           {/* 2. Hijau (85 - 95) */}
-          <div className="flex items-center gap-3 rounded-xl border border-emerald-300 bg-emerald-50/80 p-3 text-emerald-900 shadow-2xs">
-            <span className="h-6 w-6 shrink-0 rounded-full bg-emerald-500 shadow-sm shadow-emerald-500/40" />
+          <div className="flex items-center gap-2 rounded-lg border border-emerald-300 bg-emerald-50/70 p-2 text-emerald-900">
+            <span className="h-4.5 w-4.5 shrink-0 rounded-full bg-emerald-500 shadow-sm shadow-emerald-500/40" />
             <div className="min-w-0">
-              <p className="font-bold text-sm leading-tight text-emerald-900">Hijau</p>
-              <p className="text-xs text-emerald-700 font-mono font-semibold">85 - 95</p>
+              <p className="font-bold text-[11px] leading-tight text-emerald-900">Hijau</p>
+              <p className="text-[10px] text-emerald-700 font-mono font-semibold">85 - 95</p>
             </div>
           </div>
 
           {/* 3. Biru (75 - 84) */}
-          <div className="flex items-center gap-3 rounded-xl border border-blue-300 bg-blue-50/80 p-3 text-blue-900 shadow-2xs">
-            <span className="h-6 w-6 shrink-0 rounded-full bg-blue-500 shadow-sm shadow-blue-500/40" />
+          <div className="flex items-center gap-2 rounded-lg border border-blue-300 bg-blue-50/70 p-2 text-blue-900">
+            <span className="h-4.5 w-4.5 shrink-0 rounded-full bg-blue-500 shadow-sm shadow-blue-500/40" />
             <div className="min-w-0">
-              <p className="font-bold text-sm leading-tight text-blue-900">Biru</p>
-              <p className="text-xs text-blue-700 font-mono font-semibold">75 - 84</p>
+              <p className="font-bold text-[11px] leading-tight text-blue-900">Biru</p>
+              <p className="text-[10px] text-blue-700 font-mono font-semibold">75 - 84</p>
             </div>
           </div>
 
           {/* 4. Ungu (50 - 74) */}
-          <div className="flex items-center gap-3 rounded-xl border border-purple-300 bg-purple-50/80 p-3 text-purple-900 shadow-2xs">
-            <span className="h-6 w-6 shrink-0 rounded-full bg-purple-500 shadow-sm shadow-purple-500/40" />
+          <div className="flex items-center gap-2 rounded-lg border border-purple-300 bg-purple-50/70 p-2 text-purple-900">
+            <span className="h-4.5 w-4.5 shrink-0 rounded-full bg-purple-500 shadow-sm shadow-purple-500/40" />
             <div className="min-w-0">
-              <p className="font-bold text-sm leading-tight text-purple-900">Ungu</p>
-              <p className="text-xs text-purple-700 font-mono font-semibold">50 - 74</p>
+              <p className="font-bold text-[11px] leading-tight text-purple-900">Ungu</p>
+              <p className="text-[10px] text-purple-700 font-mono font-semibold">50 - 74</p>
             </div>
           </div>
 
           {/* 5. Merah (< 50) */}
-          <div className="flex items-center gap-3 rounded-xl border border-rose-300 bg-rose-50/80 p-3 text-rose-900 shadow-2xs">
-            <span className="h-6 w-6 shrink-0 rounded-full bg-rose-500 shadow-sm shadow-rose-500/40" />
+          <div className="flex items-center gap-2 rounded-lg border border-rose-300 bg-rose-50/70 p-2 text-rose-900">
+            <span className="h-4.5 w-4.5 shrink-0 rounded-full bg-rose-500 shadow-sm shadow-rose-500/40" />
             <div className="min-w-0">
-              <p className="font-bold text-sm leading-tight text-rose-900">Merah</p>
-              <p className="text-xs text-rose-700 font-mono font-semibold">&lt; 50</p>
+              <p className="font-bold text-[11px] leading-tight text-rose-900">Merah</p>
+              <p className="text-[10px] text-rose-700 font-mono font-semibold">&lt; 50</p>
             </div>
           </div>
 
           {/* 6. Belum Mengumpulkan (🗿 Moai) */}
-          <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 p-3 text-slate-700 shadow-2xs">
-            <span className="text-2xl leading-none select-none">🗿</span>
+          <div className="flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 p-2 text-slate-700">
+            <span className="text-lg leading-none select-none">🗿</span>
             <div className="min-w-0">
-              <p className="font-bold text-sm leading-tight text-slate-700">Belum Ada</p>
-              <p className="text-xs text-slate-500">Kosong</p>
+              <p className="font-bold text-[11px] leading-tight text-slate-700">Belum Ada</p>
+              <p className="text-[10px] text-slate-500">Kosong</p>
             </div>
           </div>
         </div>
@@ -106,106 +106,203 @@ export const GradeTable: React.FC<GradeTableProps> = ({
 
       {/* 2. Table Header Title Bar */}
       <div className="mb-3 flex items-center justify-between">
-        <div className="flex items-center gap-2.5">
-          <FileSpreadsheet size={20} className="text-[#1f4f8f]" />
-          <h2 className="text-lg font-bold text-[#172033]">
+        <div className="flex items-center gap-2">
+          <FileSpreadsheet size={18} className="text-[#1f4f8f]" />
+          <h2 className="text-sm sm:text-base font-bold text-[#172033]">
             {currentClassTitle}
           </h2>
-          <span className="text-xs text-[#617089] font-medium">
+          <span className="text-xs text-[#617089]">
             ({totalStudents} Siswa)
           </span>
         </div>
       </div>
 
-      {/* 3. Spreadsheet Table - Besar, Luas, Gagah, & Tetap Pas di Layar Penuh */}
-      <div className="classic-table-wrap w-full">
-        <table className="classic-table w-full">
+      {/* ========================================================================= */}
+      {/* 1. TAMPILAN KHUSUS HP (LEGA, BERSIH: NO | NAMA SISWA | L/P | BUTTON DETAIL) */}
+      {/* ========================================================================= */}
+      <div className="block md:hidden">
+        {students.length === 0 ? (
+          <div className="surface p-8 text-center text-[#617089]">
+            <p className="font-semibold text-sm">Tidak ada data siswa.</p>
+          </div>
+        ) : (
+          <div className="classic-table-wrap overflow-hidden">
+            <table className="w-full text-left text-sm border-collapse">
+              <thead>
+                <tr className="bg-[#0f2a4f] text-white text-xs font-bold uppercase tracking-wider">
+                  <th className="py-3 px-3 w-12 text-center">No</th>
+                  <th className="py-3 px-3">Nama Siswa</th>
+                  <th className="py-3 px-2 w-12 text-center">L/P</th>
+                  <th className="py-3 px-3 w-20 text-center">Aksi</th>
+                </tr>
+              </thead>
+              <tbody>
+                {students.map(({ student: s, classInfo }, idx) => {
+                  const isFirstInClass = idx === 0 || students[idx - 1].classInfo.id !== classInfo.id;
+                  const isEven = idx % 2 === 1;
+                  const rowBg = isEven ? 'bg-[#f9fbfe]' : 'bg-white';
+
+                  return (
+                    <React.Fragment key={s.id}>
+                      {/* Baris Pemisah Kelas */}
+                      {isFirstInClass && (
+                        <tr className="bg-gradient-to-r from-[#e9f2fc] via-[#f3f7fd] to-white border-y border-[#cbdbee]">
+                          <td colSpan={4} className="py-2.5 px-3 text-left">
+                            <div className="flex items-center gap-2">
+                              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#1f4f8f] text-white text-[10px] font-bold">
+                                {classInfo.tingkat}
+                              </span>
+                              <span className="font-bold text-xs uppercase tracking-wider text-[#0f2a4f]">
+                                {classInfo.namaKelas}
+                              </span>
+                              <span className="text-[11px] text-[#617089]">
+                                ({classInfo.siswa.length} Siswa)
+                              </span>
+                            </div>
+                          </td>
+                        </tr>
+                      )}
+
+                      <tr
+                        onClick={() => onSelectStudent(s, classInfo)}
+                        className={`border-b border-[#edf2f8] ${rowBg} hover:bg-[#edf4fe] transition cursor-pointer active:bg-[#e2ecf9]`}
+                      >
+                        {/* No */}
+                        <td className="py-3.5 px-3 text-center text-[#617089] font-bold text-xs">
+                          {idx + 1}
+                        </td>
+
+                        {/* Nama Siswa */}
+                        <td className="py-3.5 px-3 font-bold text-sm text-[#172033]">
+                          {s.nama}
+                        </td>
+
+                        {/* L/P */}
+                        <td className="py-3.5 px-2 text-center">
+                          <span className={`inline-flex size-5.5 items-center justify-center rounded-full text-[10px] font-bold shadow-2xs ${
+                            s.jenisKelamin === 'L' 
+                              ? 'border border-blue-200 bg-blue-50 text-blue-700' 
+                              : 'border border-pink-200 bg-pink-50 text-pink-700'
+                          }`}>
+                            {s.jenisKelamin}
+                          </span>
+                        </td>
+
+                        {/* Button Detail */}
+                        <td className="py-3.5 px-3 text-center">
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              onSelectStudent(s, classInfo);
+                            }}
+                            className="rounded-lg border border-[#cdddf2] bg-[#f8fbff] px-2.5 py-1 text-xs font-bold text-[#1f4f8f] shadow-2xs hover:bg-[#0f2a4f] hover:text-white transition cursor-pointer"
+                          >
+                            <Eye size={12} className="inline mr-1" />
+                            <span>Detail</span>
+                          </button>
+                        </td>
+                      </tr>
+                    </React.Fragment>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </div>
+
+      {/* ========================================================================= */}
+      {/* 2. TAMPILAN DESKTOP & TABLET LEBAR (TABEL LENGKAP 9 KOLOM NILAI)           */}
+      {/* ========================================================================= */}
+      <div className="hidden md:block classic-table-wrap">
+        <table className="classic-table">
           <thead>
-            {/* Top Group Row - Center & Menarik */}
+            {/* Top Group Row */}
             <tr className="group-header">
-              <th colSpan={3} className="text-center py-4 bg-gradient-to-r from-[#0c2342] to-[#12315b] border-r border-[#204a80]">
-                <div className="flex items-center justify-center gap-1.5 font-bold tracking-wider text-sm">
-                  <span>IDENTITAS SISWA</span>
-                </div>
+              <th colSpan={3} className="text-center py-3 bg-gradient-to-r from-[#0c2342] to-[#12315b]">
+                <span className="font-bold tracking-wider">IDENTITAS SISWA</span>
               </th>
 
-              <th colSpan={3} className="text-center py-4 bg-[#12315b] border-r border-[#204a80]">
-                <div className="flex items-center justify-center gap-1.5 font-bold tracking-wider text-amber-300 text-sm">
-                  <BookOpen size={15} className="text-amber-300" />
+              <th colSpan={3} className="text-center py-3 bg-[#12315b]">
+                <div className="flex items-center justify-center gap-1.5 font-bold tracking-wider text-amber-300">
+                  <BookOpen size={13} className="text-amber-300" />
                   <span>PENILAIAN BAB 1</span>
                 </div>
               </th>
 
-              <th colSpan={3} className="text-center py-4 bg-[#12315b] border-r border-[#204a80]">
-                <div className="flex items-center justify-center gap-1.5 font-bold tracking-wider text-amber-300 text-sm">
-                  <BookOpen size={15} className="text-amber-300" />
+              <th colSpan={3} className="text-center py-3 bg-[#12315b]">
+                <div className="flex items-center justify-center gap-1.5 font-bold tracking-wider text-amber-300">
+                  <BookOpen size={13} className="text-amber-300" />
                   <span>PENILAIAN BAB 2</span>
                 </div>
               </th>
 
-              <th colSpan={3} className="text-center py-4 bg-[#12315b] border-r border-[#204a80]">
-                <div className="flex items-center justify-center gap-1.5 font-bold tracking-wider text-amber-300 text-sm">
-                  <BookOpen size={15} className="text-amber-300" />
+              <th colSpan={3} className="text-center py-3 bg-[#12315b]">
+                <div className="flex items-center justify-center gap-1.5 font-bold tracking-wider text-amber-300">
+                  <BookOpen size={13} className="text-amber-300" />
                   <span>PENILAIAN BAB 3</span>
                 </div>
               </th>
 
-              <th className="text-center py-4 bg-gradient-to-r from-[#12315b] to-[#0c2342] no-print w-24">
-                <span className="font-bold tracking-wider text-sm">AKSI</span>
+              <th className="text-center py-3 bg-gradient-to-r from-[#12315b] to-[#0c2342] no-print w-16">
+                <span className="font-bold tracking-wider">AKSI</span>
               </th>
             </tr>
 
-            {/* Sub Header Row - Semua Center & Jelas */}
+            {/* Sub Header Row */}
             <tr className="sub-header text-center">
-              <th className="text-center w-14 py-3.5 bg-[#e9f0f8] font-bold text-[#0f2a4f]">No</th>
-              <th className="text-center py-3.5 min-w-[180px] bg-[#eef4fb] font-bold text-[#0f2a4f]">Nama Siswa</th>
-              <th className="text-center w-16 py-3.5 bg-[#e9f0f8] font-bold text-[#0f2a4f]" title="Jenis Kelamin">L/P</th>
+              <th className="text-center w-11 py-2.5 bg-[#e9f0f8] font-bold text-[#0f2a4f]">No</th>
+              <th className="text-left pl-4 py-2.5 min-w-[160px] bg-[#eef4fb] font-bold text-[#0f2a4f]">Nama Siswa</th>
+              <th className="text-center w-12 py-2.5 bg-[#e9f0f8] font-bold text-[#0f2a4f]" title="Jenis Kelamin">L/P</th>
               
               {/* Bab 1 */}
-              <th className="text-center py-3.5 font-semibold text-[#173b6b] bg-[#f5f8fc]">kuis 1</th>
-              <th className="text-center py-3.5 font-semibold text-[#173b6b] bg-[#f5f8fc]">tugas 1</th>
-              <th className="text-center py-3.5 font-bold text-[#0f2a4f] bg-[#e2ecf9] border-x border-[#c2d7f0]">UH 1</th>
+              <th className="text-center py-2.5 font-semibold text-[#173b6b] bg-[#f5f8fc] w-20">kuis 1</th>
+              <th className="text-center py-2.5 font-semibold text-[#173b6b] bg-[#f5f8fc] w-20">tugas 1</th>
+              <th className="text-center py-2.5 font-bold text-[#0f2a4f] bg-[#e2ecf9] w-20">UH 1</th>
 
               {/* Bab 2 */}
-              <th className="text-center py-3.5 font-semibold text-[#173b6b] bg-[#f5f8fc]">kuis 2</th>
-              <th className="text-center py-3.5 font-semibold text-[#173b6b] bg-[#f5f8fc]">tugas 2</th>
-              <th className="text-center py-3.5 font-bold text-[#0f2a4f] bg-[#e2ecf9] border-x border-[#c2d7f0]">UH 2</th>
+              <th className="text-center py-2.5 font-semibold text-[#173b6b] bg-[#f5f8fc] w-20">kuis 2</th>
+              <th className="text-center py-2.5 font-semibold text-[#173b6b] bg-[#f5f8fc] w-20">tugas 2</th>
+              <th className="text-center py-2.5 font-bold text-[#0f2a4f] bg-[#e2ecf9] w-20">UH 2</th>
 
               {/* Bab 3 */}
-              <th className="text-center py-3.5 font-semibold text-[#173b6b] bg-[#f5f8fc]">kuis 3</th>
-              <th className="text-center py-3.5 font-semibold text-[#173b6b] bg-[#f5f8fc]">tugas 3</th>
-              <th className="text-center py-3.5 font-bold text-[#0f2a4f] bg-[#e2ecf9] border-x border-[#c2d7f0]">UH 3</th>
+              <th className="text-center py-2.5 font-semibold text-[#173b6b] bg-[#f5f8fc] w-20">kuis 3</th>
+              <th className="text-center py-2.5 font-semibold text-[#173b6b] bg-[#f5f8fc] w-20">tugas 3</th>
+              <th className="text-center py-2.5 font-bold text-[#0f2a4f] bg-[#e2ecf9] w-20">UH 3</th>
 
               {/* Aksi */}
-              <th className="text-center py-3.5 no-print w-24 bg-[#eef4fb] font-bold text-[#0f2a4f]">Detail</th>
+              <th className="text-center py-2.5 no-print w-16 bg-[#eef4fb] font-bold text-[#0f2a4f]">Detail</th>
             </tr>
           </thead>
 
           <tbody>
             {students.length === 0 ? (
               <tr>
-                <td colSpan={13} className="py-14 text-center text-[#617089]">
-                  <p className="font-semibold text-base">Tidak ada data siswa.</p>
+                <td colSpan={13} className="py-12 text-center text-[#617089]">
+                  <p className="font-semibold text-sm">Tidak ada data siswa.</p>
                 </td>
               </tr>
             ) : (
               students.map(({ student: s, classInfo }, idx) => {
                 const isFirstInClass = idx === 0 || students[idx - 1].classInfo.id !== classInfo.id;
+                const isEven = idx % 2 === 1;
+                const rowBg = isEven ? 'bg-[#f9fbfe]' : 'bg-white';
 
                 return (
                   <React.Fragment key={s.id}>
-                    {/* Baris Pemisah / Jeda Per Kelas yang Rapi & Jelas */}
+                    {/* Baris Pemisah Per Kelas */}
                     {isFirstInClass && (
-                      <tr className="bg-gradient-to-r from-[#e9f2fc] via-[#f3f7fd] to-white border-y-2 border-[#cbdbee]">
-                        <td colSpan={13} className="py-3 px-5 text-left">
-                          <div className="flex items-center gap-2.5">
-                            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#1f4f8f] text-white text-xs font-bold shadow-2xs">
+                      <tr className="bg-gradient-to-r from-[#e9f2fc] via-[#f3f7fd] to-white border-y border-[#cbdbee]">
+                        <td colSpan={13} className="py-2 px-4 text-left">
+                          <div className="flex items-center gap-2">
+                            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#1f4f8f] text-white text-[10px] font-bold">
                               {classInfo.tingkat}
                             </span>
-                            <span className="font-extrabold text-sm uppercase tracking-wider text-[#0f2a4f]">
+                            <span className="font-bold text-xs uppercase tracking-wider text-[#0f2a4f]">
                               {classInfo.namaKelas}
                             </span>
-                            <span className="text-xs text-[#617089] font-medium">
+                            <span className="text-[11px] text-[#617089]">
                               ({classInfo.siswa.length} Siswa)
                             </span>
                           </div>
@@ -216,19 +313,21 @@ export const GradeTable: React.FC<GradeTableProps> = ({
                     <tr 
                       onClick={() => onSelectStudent(s, classInfo)}
                       title="Klik untuk membuka rincian nilai siswa"
-                      className="hover:bg-[#edf4fe] transition-colors"
+                      className={`hover:bg-[#edf4fe] transition-colors ${rowBg}`}
                     >
                       {/* No */}
-                      <td className="text-center text-[#617089] font-bold py-4.5">{idx + 1}</td>
+                      <td className="text-center text-[#617089] font-semibold py-3.5">
+                        {idx + 1}
+                      </td>
 
                       {/* Nama Siswa */}
-                      <td className="text-left pl-6 font-bold text-base text-[#172033] py-4.5">
+                      <td className="text-left pl-5 font-bold text-sm text-[#172033] py-3.5">
                         {s.nama}
                       </td>
 
                       {/* Kolom Jenis Kelamin (L/P) */}
-                      <td className="text-center py-4.5">
-                        <span className={`inline-flex size-7 items-center justify-center rounded-full text-xs font-bold shadow-2xs ${
+                      <td className="text-center py-3.5">
+                        <span className={`inline-flex size-6 items-center justify-center rounded-full text-[11px] font-bold shadow-2xs ${
                           s.jenisKelamin === 'L' 
                             ? 'border border-blue-200 bg-blue-50 text-blue-700' 
                             : 'border border-pink-200 bg-pink-50 text-pink-700'
@@ -238,29 +337,29 @@ export const GradeTable: React.FC<GradeTableProps> = ({
                       </td>
 
                       {/* 9 Kolom Nilai (Visual Badges) */}
-                      <td className="text-center py-4.5"><ScoreBadge score={s.kuis1} /></td>
-                      <td className="text-center py-4.5"><ScoreBadge score={s.tugas1} /></td>
-                      <td className="text-center py-4.5 bg-slate-50/70 font-semibold border-x border-[#edf2f8]"><ScoreBadge score={s.uh1} /></td>
+                      <td className="text-center py-3.5"><ScoreBadge score={s.kuis1} /></td>
+                      <td className="text-center py-3.5"><ScoreBadge score={s.tugas1} /></td>
+                      <td className="text-center py-3.5 bg-slate-50/70 font-semibold"><ScoreBadge score={s.uh1} /></td>
 
-                      <td className="text-center py-4.5"><ScoreBadge score={s.kuis2} /></td>
-                      <td className="text-center py-4.5"><ScoreBadge score={s.tugas2} /></td>
-                      <td className="text-center py-4.5 bg-slate-50/70 font-semibold border-x border-[#edf2f8]"><ScoreBadge score={s.uh2} /></td>
+                      <td className="text-center py-3.5"><ScoreBadge score={s.kuis2} /></td>
+                      <td className="text-center py-3.5"><ScoreBadge score={s.tugas2} /></td>
+                      <td className="text-center py-3.5 bg-slate-50/70 font-semibold"><ScoreBadge score={s.uh2} /></td>
 
-                      <td className="text-center py-4.5"><ScoreBadge score={s.kuis3} /></td>
-                      <td className="text-center py-4.5"><ScoreBadge score={s.tugas3} /></td>
-                      <td className="text-center py-4.5 bg-slate-50/70 font-semibold border-x border-[#edf2f8]"><ScoreBadge score={s.uh3} /></td>
+                      <td className="text-center py-3.5"><ScoreBadge score={s.kuis3} /></td>
+                      <td className="text-center py-3.5"><ScoreBadge score={s.tugas3} /></td>
+                      <td className="text-center py-3.5 bg-slate-50/70 font-semibold"><ScoreBadge score={s.uh3} /></td>
 
                       {/* Aksi Button */}
-                      <td className="text-center py-4.5 no-print">
+                      <td className="text-center py-3.5 no-print">
                         <button
                           type="button"
                           onClick={(e) => {
                             e.stopPropagation();
                             onSelectStudent(s, classInfo);
                           }}
-                          className="rounded-xl border border-[#dbe5f4] bg-white px-3.5 py-1.5 text-xs font-bold text-[#1f4f8f] hover:bg-[#0f2a4f] hover:text-white hover:border-[#0f2a4f] transition cursor-pointer shadow-2xs"
+                          className="rounded-lg border border-[#dbe5f4] bg-white px-2.5 py-1 text-xs font-semibold text-[#1f4f8f] hover:bg-[#0f2a4f] hover:text-white transition cursor-pointer"
                         >
-                          <Eye size={14} className="inline mr-1" />
+                          <Eye size={13} className="inline mr-1" />
                           <span>Lihat</span>
                         </button>
                       </td>
@@ -276,7 +375,7 @@ export const GradeTable: React.FC<GradeTableProps> = ({
       {/* Info Footer */}
       <div className="mt-4 flex items-center justify-between text-xs text-[#617089]">
         <div className="flex items-center gap-1.5">
-          <Info size={15} className="text-[#1f4f8f]" />
+          <Info size={14} className="text-[#1f4f8f]" />
           <span>Nilai diisi langsung secara berkala oleh guru mata pelajaran matematika.</span>
         </div>
       </div>

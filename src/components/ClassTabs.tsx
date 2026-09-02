@@ -16,23 +16,24 @@ export const ClassTabs: React.FC<ClassTabsProps> = ({
   const allStudentsCount = classes.reduce((sum, c) => sum + c.siswa.length, 0);
 
   return (
-    <div className="border-b border-[#dbe5f4] bg-[#f8fafd] py-5 sm:py-6 no-print">
+    <div className="border-b border-[#dbe5f4] bg-[#f8fafd] py-3 sm:py-4 no-print">
       <div className="container">
-        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
-          {/* Semua Kelas Tab - Ukuran Besar, Tinggi, & Lebar */}
+        {/* Scrollable on Mobile, Centered on Desktop */}
+        <div className="flex items-center justify-start sm:justify-center gap-2 sm:gap-3 overflow-x-auto no-scrollbar py-1">
+          {/* Semua Kelas Tab */}
           <button
             type="button"
             onClick={() => onSelectClass('all')}
-            className={`flex items-center gap-3 rounded-2xl border px-6 py-3 sm:px-7 sm:py-3.5 text-sm sm:text-base font-bold transition-all cursor-pointer shadow-2xs hover:-translate-y-0.5 ${
+            className={`flex items-center gap-2 rounded-xl border px-4 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-bold shrink-0 transition-all cursor-pointer shadow-2xs ${
               selectedClassId === 'all'
-                ? 'border-[#0f2a4f] bg-[#0f2a4f] text-white shadow-md shadow-[#0f2a4f]/20'
-                : 'border-[#cdddf2] bg-white text-[#173b6b] hover:border-[#1f4f8f] hover:bg-[#eef5fd] hover:shadow-sm'
+                ? 'border-[#0f2a4f] bg-[#0f2a4f] text-white shadow-xs'
+                : 'border-[#cdddf2] bg-white text-[#173b6b] hover:border-[#1f4f8f] hover:bg-[#eef5fd]'
             }`}
           >
-            <Layers size={20} className={selectedClassId === 'all' ? 'text-[#f2d35f]' : 'text-[#1f4f8f]'} />
-            <span>Semua Kelas</span>
+            <Layers size={16} className={selectedClassId === 'all' ? 'text-[#f2d35f]' : 'text-[#1f4f8f]'} />
+            <span className="whitespace-nowrap">Semua Kelas</span>
             <span
-              className={`rounded-full px-2.5 py-0.5 text-xs font-extrabold ${
+              className={`rounded-full px-2 py-0.2 text-[11px] font-bold ${
                 selectedClassId === 'all'
                   ? 'bg-white/20 text-white'
                   : 'bg-[#eef3fb] text-[#1f4f8f]'
@@ -42,7 +43,7 @@ export const ClassTabs: React.FC<ClassTabsProps> = ({
             </span>
           </button>
 
-          {/* Individual Class Tabs - Ukuran Besar, Tinggi, & Lebar */}
+          {/* Individual Class Tabs */}
           {classes.map((cls) => {
             const isActive = selectedClassId === cls.id;
             return (
@@ -50,16 +51,16 @@ export const ClassTabs: React.FC<ClassTabsProps> = ({
                 key={cls.id}
                 type="button"
                 onClick={() => onSelectClass(cls.id)}
-                className={`flex items-center gap-3 rounded-2xl border px-6 py-3 sm:px-7 sm:py-3.5 text-sm sm:text-base font-bold transition-all cursor-pointer shadow-2xs hover:-translate-y-0.5 ${
+                className={`flex items-center gap-2 rounded-xl border px-4 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-bold shrink-0 transition-all cursor-pointer shadow-2xs ${
                   isActive
-                    ? 'border-[#0f2a4f] bg-[#0f2a4f] text-white shadow-md shadow-[#0f2a4f]/20'
-                    : 'border-[#cdddf2] bg-white text-[#173b6b] hover:border-[#1f4f8f] hover:bg-[#eef5fd] hover:shadow-sm'
+                    ? 'border-[#0f2a4f] bg-[#0f2a4f] text-white shadow-xs'
+                    : 'border-[#cdddf2] bg-white text-[#173b6b] hover:border-[#1f4f8f] hover:bg-[#eef5fd]'
                 }`}
               >
-                <GraduationCap size={20} className={isActive ? 'text-[#f2d35f]' : 'text-[#1f4f8f]'} />
-                <span>{cls.namaKelas}</span>
+                <GraduationCap size={16} className={isActive ? 'text-[#f2d35f]' : 'text-[#1f4f8f]'} />
+                <span className="whitespace-nowrap">{cls.namaKelas}</span>
                 <span
-                  className={`rounded-full px-2.5 py-0.5 text-xs font-extrabold ${
+                  className={`rounded-full px-2 py-0.2 text-[11px] font-bold ${
                     isActive
                       ? 'bg-white/20 text-white'
                       : 'bg-[#eef3fb] text-[#1f4f8f]'
