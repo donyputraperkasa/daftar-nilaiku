@@ -3,7 +3,7 @@ import { CreatorFooter } from './creator-footer';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="mt-20 bg-white/75">
+    <footer className="mt-12">
       <CreatorFooter />
     </footer>
   );

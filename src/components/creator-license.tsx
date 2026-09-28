@@ -58,7 +58,7 @@ export function CreatorLicense({
           <p className="text-xs font-bold tracking-[.3em] text-[#b48700]">
             VERIFIED LICENSE
           </p>
-          <h2 className="mt-3 bg-gradient-to-r from-[#123d78] to-[#29328f] bg-clip-text text-3xl font-extrabold text-transparent">
+          <h2 className="mt-3 text-3xl font-extrabold text-[#0f2a4f]">
             Daftar Nilaiku
           </h2>
           <p className="mt-2 text-sm leading-6 text-[#55657f]">

@@ -1,78 +1,115 @@
 import React from 'react';
-import { Layers, GraduationCap } from 'lucide-react';
+import { Building2, Layers, CheckCircle2, Search, X, Printer, RotateCcw } from 'lucide-react';
 import { type ClassData } from '../data/gradesData';
 
 interface ClassTabsProps {
   classes: ClassData[];
   selectedClassId: string;
   onSelectClass: (classId: string) => void;
+  totalStudents: number;
+  displayedCount: number;
+  searchQuery: string;
+  onSearchChange: (query: string) => void;
+  onPrint: () => void;
 }
 
 export const ClassTabs: React.FC<ClassTabsProps> = ({
   classes,
   selectedClassId,
   onSelectClass,
+  totalStudents,
+  displayedCount,
+  searchQuery,
+  onSearchChange,
+  onPrint,
 }) => {
-  const allStudentsCount = classes.reduce((sum, c) => sum + c.siswa.length, 0);
+  const isFiltered = searchQuery !== '' || selectedClassId !== 'all';
 
   return (
-    <div className="border-b border-[#dbe5f4] bg-[#f8fafd] py-3 sm:py-4 no-print">
-      <div className="container">
-        {/* Scrollable on Mobile, Centered on Desktop */}
-        <div className="flex items-center justify-start sm:justify-center gap-2 sm:gap-3 overflow-x-auto no-scrollbar py-1">
-          {/* Semua Kelas Tab */}
+    <div className="no-print">
+      {/* 1. Dashboard Summary Cards */}
+      <section className="dashboard-grid">
+        {[
+          { label: 'Total Siswa', value: totalStudents, icon: Building2 },
+          { 
+            label: 'Kategori Jenjang', 
+            value: <>{classes.length} <span style={{ fontSize: '16px', fontWeight: 500, color: '#64748b' }}>Jenjang</span></>, 
+            icon: Layers 
+          },
+          { label: 'Hasil Ditampilkan', value: displayedCount, icon: CheckCircle2 },
+        ].map((item, i) => (
+          <div key={i} className="dashboard-card">
+            <h3 className="dashboard-card-title">
+              <item.icon size={18} color="#2563eb" />
+              <span>{item.label}</span>
+            </h3>
+            <p className="dashboard-card-value">{item.value}</p>
+          </div>
+        ))}
+      </section>
+
+      {/* 2. Search & Filter Bar */}
+      <section className="search-filter-card">
+        <div className="search-input-wrapper">
+          <div className="search-icon-box"><Search size={20} color="#2563eb" /></div>
+          <input
+            type="text"
+            placeholder="Cari nama siswa..."
+            value={searchQuery}
+            onChange={(e) => onSearchChange(e.target.value)}
+            className="search-input"
+            aria-label="Cari nama siswa"
+          />
+          {searchQuery && (
+            <button type="button" onClick={() => onSearchChange('')} className="search-clear-btn" title="Hapus pencarian">
+              <X size={15} />
+            </button>
+          )}
+        </div>
+
+        <div className="filter-chips-wrapper" role="group" aria-label="Filter kategori jenjang">
           <button
             type="button"
             onClick={() => onSelectClass('all')}
-            className={`flex items-center gap-2 rounded-xl border px-4 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-bold shrink-0 transition-all cursor-pointer shadow-2xs ${
-              selectedClassId === 'all'
-                ? 'border-[#0f2a4f] bg-[#0f2a4f] text-white shadow-xs'
-                : 'border-[#cdddf2] bg-white text-[#173b6b] hover:border-[#1f4f8f] hover:bg-[#eef5fd]'
-            }`}
+            className={`filter-chip ${selectedClassId === 'all' ? 'filter-chip-active' : ''}`}
           >
-            <Layers size={16} className={selectedClassId === 'all' ? 'text-[#f2d35f]' : 'text-[#1f4f8f]'} />
-            <span className="whitespace-nowrap">Semua Kelas</span>
-            <span
-              className={`rounded-full px-2 py-0.2 text-[11px] font-bold ${
-                selectedClassId === 'all'
-                  ? 'bg-white/20 text-white'
-                  : 'bg-[#eef3fb] text-[#1f4f8f]'
-              }`}
-            >
-              {allStudentsCount}
-            </span>
+            <span>Semua</span>
+            <span className="filter-chip-count">{totalStudents}</span>
           </button>
 
-          {/* Individual Class Tabs */}
-          {classes.map((cls) => {
-            const isActive = selectedClassId === cls.id;
-            return (
-              <button
-                key={cls.id}
-                type="button"
-                onClick={() => onSelectClass(cls.id)}
-                className={`flex items-center gap-2 rounded-xl border px-4 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-bold shrink-0 transition-all cursor-pointer shadow-2xs ${
-                  isActive
-                    ? 'border-[#0f2a4f] bg-[#0f2a4f] text-white shadow-xs'
-                    : 'border-[#cdddf2] bg-white text-[#173b6b] hover:border-[#1f4f8f] hover:bg-[#eef5fd]'
-                }`}
-              >
-                <GraduationCap size={16} className={isActive ? 'text-[#f2d35f]' : 'text-[#1f4f8f]'} />
-                <span className="whitespace-nowrap">{cls.namaKelas}</span>
-                <span
-                  className={`rounded-full px-2 py-0.2 text-[11px] font-bold ${
-                    isActive
-                      ? 'bg-white/20 text-white'
-                      : 'bg-[#eef3fb] text-[#1f4f8f]'
-                  }`}
-                >
-                  {cls.siswa.length}
-                </span>
-              </button>
-            );
-          })}
+          {classes.map((cls) => (
+            <button
+              key={cls.id}
+              type="button"
+              onClick={() => onSelectClass(cls.id)}
+              className={`filter-chip ${selectedClassId === cls.id ? 'filter-chip-active' : ''}`}
+            >
+              <span>{cls.namaKelas.split(' ')[0]} {cls.tingkat}</span>
+              <span className="filter-chip-count">{cls.siswa.length}</span>
+            </button>
+          ))}
         </div>
-      </div>
+      </section>
+
+      {/* 3. Action Buttons */}
+      <section className="quick-links-wrap">
+        <button type="button" onClick={onPrint} className="quick-link-btn quick-link-template" title="Cetak Rekap Nilai Siswa">
+          <Printer size={18} />
+          <span>Cetak Rekap Nilai</span>
+        </button>
+
+        {isFiltered && (
+          <button
+            type="button"
+            onClick={() => { onSearchChange(''); onSelectClass('all'); }}
+            className="quick-link-btn quick-link-record"
+            title="Reset filter"
+          >
+            <RotateCcw size={16} />
+            <span>Reset Filter</span>
+          </button>
+        )}
+      </section>
     </div>
   );
 };
