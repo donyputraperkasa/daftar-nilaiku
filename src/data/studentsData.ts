@@ -72,10 +72,10 @@ export const CLASSES_DATA: ClassData[] = [
     siswa: [
       //                                   [  K1,  T1, UH1,   K2,  T2, UH2,   K3,  T3, UH3 ]
       createSiswa('9-01', 1, 'Bimo',  'L', [  85,  80,   100,    _,   _,   _,    _,   _,   _ ]),
-      createSiswa('9-02', 2, 'Derry', 'L', [   _,  75,   78,    _,   _,   _,    _,   _,   _ ]),
-      createSiswa('9-03', 3, 'Eca',   'P', [  80,  80,   _,    _,   _,   _,    _,   _,   _ ]),
+      createSiswa('9-02', 2, 'Derry', 'L', [  80,  75,   78,    _,   _,   _,    _,   _,   _ ]),
+      createSiswa('9-03', 3, 'Eca',   'P', [  80,  80,   80,    _,   _,   _,    _,   _,   _ ]),
       createSiswa('9-04', 4, 'Fajar', 'L', [  90,  88,   100,    _,   _,   _,    _,   _,   _ ]),
-      createSiswa('9-05', 5, 'Ugra',  'L', [   _,  75,   _,    _,   _,   _,    _,   _,   _ ]),
+      createSiswa('9-05', 5, 'Ugra',  'L', [   _,  75,   80,    _,   _,   _,    _,   _,   _ ]),
     ],
   },
 ];
