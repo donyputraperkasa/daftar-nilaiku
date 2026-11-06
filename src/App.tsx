@@ -1,29 +1,25 @@
 import { useState, useMemo } from 'react';
-import './App.css';
 import { Navbar } from './components/Navbar';
 import { ClassTabs } from './components/ClassTabs';
 import { GradeTable } from './components/GradeTable';
 import { StudentDetailModal } from './components/StudentDetailModal';
 import { FloatingContact } from './components/FloatingContact';
 import { Footer } from './components/Footer';
-import { CLASSES_DATA, type ClassData, type StudentGrade } from './data/gradesData';
+import { CLASSES_DATA } from './data/studentsData';
+import type { ClassData, StudentGrade, StudentWithClass } from './types';
 
 export function App() {
   const [selectedClassId, setSelectedClassId] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
-  
-  // Modal state
   const [selectedStudent, setSelectedStudent] = useState<StudentGrade | null>(null);
   const [selectedStudentClass, setSelectedStudentClass] = useState<ClassData | null>(null);
 
-  // Total students count across all classes
   const totalStudents = useMemo(() => {
     return CLASSES_DATA.reduce((sum, c) => sum + c.siswa.length, 0);
   }, []);
 
-  // Filtered List of Students by Class & Search Query
   const filteredStudents = useMemo(() => {
-    const result: { student: StudentGrade; classInfo: ClassData }[] = [];
+    const result: StudentWithClass[] = [];
     const query = searchQuery.toLowerCase().trim();
 
     CLASSES_DATA.forEach((cls) => {
@@ -47,10 +43,8 @@ export function App() {
 
   return (
     <div className="app-container">
-      {/* 1. Header (tatakelolaku style) */}
       <Navbar />
 
-      {/* 2. Dashboard Summary Cards + Search & Filter Bar + Action Button */}
       <ClassTabs
         classes={CLASSES_DATA}
         selectedClassId={selectedClassId}
@@ -62,7 +56,6 @@ export function App() {
         onPrint={() => window.print()}
       />
 
-      {/* 3. Main Grade Table Area */}
       <main>
         <GradeTable
           students={filteredStudents}
@@ -74,7 +67,6 @@ export function App() {
         />
       </main>
 
-      {/* 4. Student Mini Report Modal */}
       <StudentDetailModal
         student={selectedStudent}
         classInfo={selectedStudentClass}
@@ -84,10 +76,8 @@ export function App() {
         }}
       />
 
-      {/* 5. Floating WhatsApp Contact */}
       <FloatingContact />
 
-      {/* 6. Footer */}
       <footer>
         <Footer />
       </footer>

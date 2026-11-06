@@ -1,26 +1,16 @@
 import React from 'react';
 import { Eye } from 'lucide-react';
-import { type StudentGrade } from '../data/gradesData';
+import type { GradeDesktopRowProps } from '../types';
 import { ScoreBadge } from './ScoreBadge';
 
-interface GradeDesktopRowProps {
-  student: StudentGrade;
-  index: number;
-  onSelect: () => void;
-  babList: readonly { 
-    num: number; kuisKey: 'kuis1' | 'kuis2' | 'kuis3'; 
-    tugasKey: 'tugas1' | 'tugas2' | 'tugas3'; 
-    uhKey: 'uh1' | 'uh2' | 'uh3' }[];
-}
-
-export const GradeDesktopRow: React.FC<GradeDesktopRowProps> = ({
+export function GradeDesktopRow({
   student: s,
   index,
   onSelect,
   babList,
-}) => {
+}: GradeDesktopRowProps) {
   return (
-    <tr 
+    <tr
       onClick={onSelect}
       className="hover:bg-[#f8faff] transition-colors cursor-pointer border-b border-[#f1f5f9]"
     >
@@ -57,4 +47,4 @@ export const GradeDesktopRow: React.FC<GradeDesktopRowProps> = ({
       </td>
     </tr>
   );
-};
+}

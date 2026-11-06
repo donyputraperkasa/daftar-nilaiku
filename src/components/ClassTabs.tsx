@@ -1,19 +1,7 @@
-import React from 'react';
 import { Building2, Layers, CheckCircle2, Search, X, Printer, RotateCcw } from 'lucide-react';
-import { type ClassData } from '../data/gradesData';
+import type { ClassTabsProps } from '../types';
 
-interface ClassTabsProps {
-  classes: ClassData[];
-  selectedClassId: string;
-  onSelectClass: (classId: string) => void;
-  totalStudents: number;
-  displayedCount: number;
-  searchQuery: string;
-  onSearchChange: (query: string) => void;
-  onPrint: () => void;
-}
-
-export const ClassTabs: React.FC<ClassTabsProps> = ({
+export function ClassTabs({
   classes,
   selectedClassId,
   onSelectClass,
@@ -22,7 +10,7 @@ export const ClassTabs: React.FC<ClassTabsProps> = ({
   searchQuery,
   onSearchChange,
   onPrint,
-}) => {
+}: ClassTabsProps) {
   const isFiltered = searchQuery !== '' || selectedClassId !== 'all';
 
   return (
@@ -31,10 +19,10 @@ export const ClassTabs: React.FC<ClassTabsProps> = ({
       <section className="dashboard-grid">
         {[
           { label: 'Total Siswa', value: totalStudents, icon: Building2 },
-          { 
-            label: 'Kategori Jenjang', 
-            value: <>{classes.length} <span style={{ fontSize: '16px', fontWeight: 500, color: '#64748b' }}>Jenjang</span></>, 
-            icon: Layers 
+          {
+            label: 'Kategori Jenjang',
+            value: <>{classes.length} <span style={{ fontSize: '16px', fontWeight: 500, color: '#64748b' }}>Jenjang</span></>,
+            icon: Layers,
           },
           { label: 'Hasil Ditampilkan', value: displayedCount, icon: CheckCircle2 },
         ].map((item, i) => (
@@ -112,4 +100,4 @@ export const ClassTabs: React.FC<ClassTabsProps> = ({
       </section>
     </div>
   );
-};
+}

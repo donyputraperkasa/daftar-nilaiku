@@ -1,0 +1,51 @@
+/* Modern Cohesive Table Wrap */
+.theme-table-wrap {
+  width: 100%;
+  border-radius: 18px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.theme-table {
+  width: 100%;
+  min-width: 820px;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 13.5px;
+  text-align: center;
+}
+
+.theme-table thead tr.group-row th {
+  background: #eff6ff;
+  color: #1e3a8a;
+  border-bottom: 1.5px solid #bfdbfe;
+  padding: 13px 8px;
+  font-weight: 700;
+  font-size: 12.5px;
+  letter-spacing: 0.04em;
+}
+
+.theme-table thead tr.sub-row th {
+  background: #f8fafc;
+  color: #475569;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 11px 8px;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.theme-table tbody td {
+  border-bottom: 1px solid #f1f5f9;
+  padding: 13px 8px;
+  color: #1e293b;
+  background-color: inherit;
+  transition: background-color 0.15s ease;
+}
+
+.theme-table tbody tr:hover {
+  background-color: #f8faff !important;
+}
+

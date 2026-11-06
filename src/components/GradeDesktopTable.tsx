@@ -1,19 +1,13 @@
 import React from 'react';
 import { BookOpen } from 'lucide-react';
-import { type StudentGrade, type ClassData } from '../data/gradesData';
+import type { GradeDesktopTableProps } from '../types';
 import { GradeDesktopRow } from './GradeDesktopRow';
 
-interface GradeDesktopTableProps {
-  students: { student: StudentGrade; classInfo: ClassData }[];
-  onSelectStudent: (student: StudentGrade, classInfo: ClassData) => void;
-  babList: readonly { num: number; kuisKey: 'kuis1' | 'kuis2' | 'kuis3'; tugasKey: 'tugas1' | 'tugas2' | 'tugas3'; uhKey: 'uh1' | 'uh2' | 'uh3' }[];
-}
-
-export const GradeDesktopTable: React.FC<GradeDesktopTableProps> = ({
+export function GradeDesktopTable({
   students,
   onSelectStudent,
   babList,
-}) => {
+}: GradeDesktopTableProps) {
   return (
     <div className="hidden md:block theme-table-wrap">
       <table className="theme-table">
@@ -83,4 +77,4 @@ export const GradeDesktopTable: React.FC<GradeDesktopTableProps> = ({
       </table>
     </div>
   );
-};
+}

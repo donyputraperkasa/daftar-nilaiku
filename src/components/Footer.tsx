@@ -1,12 +1,11 @@
-import React from 'react';
-import { CreatorFooter } from './creator-footer';
+import { CreatorSignature } from './creator-signature';
 
-export const Footer: React.FC = () => {
+export function Footer() {
   return (
-    <footer className="mt-12">
-      <CreatorFooter />
-    </footer>
+    <div className="mt-12 py-8 text-center">
+      <div className="mx-auto w-fit max-w-full">
+        <CreatorSignature />
+      </div>
+    </div>
   );
-};
-
-export { Footer as SiteFooter };
+}

@@ -1,16 +1,10 @@
-import React from 'react';
 import { Crown, Sparkles } from 'lucide-react';
-import { type ScoreValue, getScoreCategory } from '../data/gradesData';
+import type { ScoreNumberBadgeProps } from '../types';
+import { getScoreCategory, isGlossyGreen } from '../utils/scoreUtils';
 
-interface ScoreNumberBadgeProps {
-  score: ScoreValue | undefined;
-  label?: string;
-}
-
-export const ScoreNumberBadge: React.FC<ScoreNumberBadgeProps> = ({ score, label }) => {
+export function ScoreNumberBadge({ score, label }: ScoreNumberBadgeProps) {
   const cat = getScoreCategory(score);
 
-  // Nilai Kosong / Belum Mengumpulkan
   if (cat.type === 'moai' || score === null || score === undefined || isNaN(score)) {
     return (
       <div
@@ -22,8 +16,7 @@ export const ScoreNumberBadge: React.FC<ScoreNumberBadgeProps> = ({ score, label
     );
   }
 
-  // Nilai Istimewa / Tertinggi: Emas (>= 96, misal 96 - 100)
-  if (cat.type === 'gold' || score >= 96) {
+  if (cat.type === 'gold' || score >= 98) {
     const isPerfect = score === 100;
     return (
       <div
@@ -43,22 +36,31 @@ export const ScoreNumberBadge: React.FC<ScoreNumberBadgeProps> = ({ score, label
     );
   }
 
-  // Nilai Tinggi: Hijau (85 - 95)
   if (cat.type === 'green' || score >= 85) {
+    if (isGlossyGreen(score)) {
+      return (
+        <div
+          className="score-badge-green group inline-flex items-center justify-center gap-1 min-w-[60px] px-2.5 py-1 rounded-lg cursor-pointer transition-all duration-200 hover:scale-105 select-none"
+          title={`${label ? `${label}: ` : ''}Nilai Sangat Baik (Bersinar): Hijau (${score})`}
+        >
+          <Sparkles size={12} className="text-emerald-700 animate-sparkle-twinkle shrink-0 drop-shadow-2xs" />
+          <span className="font-mono font-extrabold text-xs text-emerald-950 tracking-tight">
+            {score}
+          </span>
+        </div>
+      );
+    }
+
     return (
       <div
-        className="score-badge-green group inline-flex items-center justify-center gap-1 min-w-[60px] px-2.5 py-1 rounded-lg cursor-pointer transition-all duration-200 hover:scale-105 select-none"
+        className="inline-flex items-center justify-center min-w-[54px] px-2.5 py-1 rounded-lg bg-[#ecfdf5] text-[#065f46] border border-[#a7f3d0] font-mono font-bold text-xs shadow-2xs hover:bg-[#d1fae5] transition-colors cursor-pointer select-none"
         title={`${label ? `${label}: ` : ''}Nilai Sangat Baik: Hijau (${score})`}
       >
-        <Sparkles size={12} className="text-emerald-600 animate-sparkle-twinkle shrink-0" />
-        <span className="font-mono font-extrabold text-xs text-emerald-950 tracking-tight">
-          {score}
-        </span>
+        <span>{score}</span>
       </div>
     );
   }
 
-  // Nilai Baik: Biru (75 - 84)
   if (cat.type === 'blue' || score >= 75) {
     return (
       <div
@@ -70,7 +72,6 @@ export const ScoreNumberBadge: React.FC<ScoreNumberBadgeProps> = ({ score, label
     );
   }
 
-  // Nilai Cukup: Ungu (50 - 74)
   if (cat.type === 'purple' || score >= 50) {
     return (
       <div
@@ -82,7 +83,6 @@ export const ScoreNumberBadge: React.FC<ScoreNumberBadgeProps> = ({ score, label
     );
   }
 
-  // Nilai Kurang: Merah (< 50)
   return (
     <div
       className="inline-flex items-center justify-center min-w-[54px] px-2.5 py-1 rounded-lg bg-[#fef2f2] text-[#dc2626] border border-[#fecaca] font-mono font-bold text-xs shadow-2xs hover:bg-[#fee2e2] transition-colors cursor-pointer select-none"
@@ -91,4 +91,4 @@ export const ScoreNumberBadge: React.FC<ScoreNumberBadgeProps> = ({ score, label
       <span>{score}</span>
     </div>
   );
-};
+}

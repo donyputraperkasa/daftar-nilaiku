@@ -1,5 +1,10 @@
 @import "tailwindcss";
-@import "./App.css";
+@import "./styles/base.css";
+@import "./styles/dashboard.css";
+@import "./styles/filter.css";
+@import "./styles/table.css";
+@import "./styles/modal.css";
+@import "./styles/badges.css";
 
 :root {
   --background: #ffffff;
@@ -13,14 +18,9 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background-color: #ffffff;
-}
-
-body {
+html, body {
   margin: 0;
+  scroll-behavior: smooth;
   color: #1e293b;
   background-color: #ffffff;
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -32,37 +32,14 @@ body {
   font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
-/* Hide scrollbar utility */
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-/* Print Styles */
 @media print {
-  .no-print {
-    display: none !important;
-  }
-  body, #root {
-    background: #fff !important;
-  }
-  .app-container {
-    max-width: 100% !important;
-    padding: 0 !important;
-  }
-  .theme-table-wrap {
-    border: 1px solid #000 !important;
-    box-shadow: none !important;
-    overflow: visible !important;
-    border-radius: 0 !important;
-  }
-  .theme-table {
-    min-width: 100% !important;
-  }
-  .theme-table th, .theme-table td {
-    border: 1px solid #444 !important;
-  }
+  .no-print { display: none !important; }
+  body, #root { background: #fff !important; }
+  .app-container { max-width: 100% !important; padding: 0 !important; }
+  .theme-table-wrap { border: 1px solid #000 !important; box-shadow: none !important; overflow: visible !important; border-radius: 0 !important; }
+  .theme-table { min-width: 100% !important; }
+  .theme-table th, .theme-table td { border: 1px solid #444 !important; }
 }

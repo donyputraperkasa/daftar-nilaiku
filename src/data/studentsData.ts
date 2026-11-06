@@ -1,4 +1,5 @@
-import { type ClassData, type StudentGrade, type ScoreValue } from './gradesTypes';
+import type { ClassData } from '../types';
+import { createSiswa } from '../utils/scoreUtils';
 
 /**
  * PANDUAN PENGISIAN NILAI (GURU):
@@ -9,36 +10,6 @@ import { type ClassData, type StudentGrade, type ScoreValue } from './gradesType
  */
 const _ = null;
 
-type NilaiArray = [
-  ScoreValue, ScoreValue, ScoreValue, // Bab 1 (K1, T1, UH1)
-  ScoreValue, ScoreValue, ScoreValue, // Bab 2 (K2, T2, UH2)
-  ScoreValue, ScoreValue, ScoreValue  // Bab 3 (K3, T3, UH3)
-];
-
-const createSiswa = (
-  id: string,
-  no: number,
-  nama: string,
-  gender: 'L' | 'P',
-  nilai: NilaiArray,
-  catatanGuru: string = ''
-): StudentGrade => ({
-  id,
-  no,
-  nama,
-  jenisKelamin: gender,
-  kuis1: nilai[0],
-  tugas1: nilai[1],
-  uh1: nilai[2],
-  kuis2: nilai[3],
-  tugas2: nilai[4],
-  uh2: nilai[5],
-  kuis3: nilai[6],
-  tugas3: nilai[7],
-  uh3: nilai[8],
-  catatanGuru,
-});
-
 export const CLASSES_DATA: ClassData[] = [
   {
     id: '7',
@@ -47,7 +18,7 @@ export const CLASSES_DATA: ClassData[] = [
     jumlahSiswa: 2,
     siswa: [
       //                                   [  K1,  T1, UH1,   K2,  T2, UH2,   K3,  T3, UH3 ]
-      createSiswa('7-01', 1, 'Febi',  'P', [  80,  70,  78,    70,   70,   50,    _,   _,   _ ]),
+      createSiswa('7-01', 1, 'Febi', 'P', [80, 70, 78, 70, 70, 50, _, _, _]),
     ],
   },
   {
@@ -57,10 +28,10 @@ export const CLASSES_DATA: ClassData[] = [
     jumlahSiswa: 4,
     siswa: [
       //                                    [  K1,  T1, UH1,   K2,  T2, UH2,   K3,  T3, UH3 ]
-      createSiswa('8-01', 1, 'Cisca',  'P', [ 100,  85,  75,    90,   90,   88,    _,   _,   _ ]),
-      createSiswa('8-02', 2, 'Adrian', 'L', [ 100,  60,   70,    70,   78,   27,    _,   _,   _ ]),
-      createSiswa('8-03', 3, 'Abeng',  'L', [  90,  80,  70,    70,   78,   17,    _,   _,   _ ]),
-      createSiswa('8-04', 4, 'Nadine', 'P', [ 100,  85, 100,    100,   100,   96,    _,   _,   _ ]),
+      createSiswa('8-01', 1, 'Cisca', 'P', [100, 85, 75, 90, 90, 88, _, _, _]),
+      createSiswa('8-02', 2, 'Adrian', 'L', [100, 60, 70, 70, 78, 27, _, _, _]),
+      createSiswa('8-03', 3, 'Abeng', 'L', [90, 80, 70, 70, 78, 17, _, _, _]),
+      createSiswa('8-04', 4, 'Nadine', 'P', [100, 85, 100, 100, 100, 96, _, _, _]),
     ],
   },
   {
@@ -70,11 +41,11 @@ export const CLASSES_DATA: ClassData[] = [
     jumlahSiswa: 5,
     siswa: [
       //                                   [  K1,  T1, UH1,   K2,  T2, UH2,   K3,  T3, UH3 ]
-      createSiswa('9-01', 1, 'Bimo',  'L', [  85,  80,   100,    100,   100,   0,    _,   _,   _ ]),
-      createSiswa('9-02', 2, 'Derry', 'L', [  80,  75,   78,    80,  80,   15,    _,   _,   _ ]),
-      createSiswa('9-03', 3, 'Eca',   'P', [  80,  80,   80,    55,   65,   0,    _,   _,   _ ]),
-      createSiswa('9-04', 4, 'Fajar', 'L', [  90,  88,   100,    80,   85,   25,    _,   _,   _ ]),
-      createSiswa('9-05', 5, 'Ugra',  'L', [   _,  75,   80,    80,   80,   10,    _,   _,   _ ]),
+      createSiswa('9-01', 1, 'Bimo', 'L', [85, 80, 100, 100, 100, 0, _, _, _]),
+      createSiswa('9-02', 2, 'Derry', 'L', [80, 75, 78, 80, 80, 15, _, _, _]),
+      createSiswa('9-03', 3, 'Eca', 'P', [80, 80, 80, 55, 65, 0, _, _, _]),
+      createSiswa('9-04', 4, 'Fajar', 'L', [90, 88, 100, 80, 85, 25, _, _, _]),
+      createSiswa('9-05', 5, 'Ugra', 'L', [_, 75, 80, 80, 80, 10, _, _, _]),
     ],
   },
 ];

@@ -1,0 +1,108 @@
+/* Filter Chips (Semua, Kelas 7, Kelas 8, Kelas 9) */
+.filter-chips-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 1.5px solid #e2e8f0;
+  background: #f8fafc;
+  color: #475569;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  min-height: 44px;
+  box-sizing: border-box;
+}
+
+.filter-chip:hover {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+  color: #2563eb;
+  transform: translateY(-1px);
+}
+
+.filter-chip-active {
+  background: #2563eb !important;
+  border-color: #2563eb !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+}
+
+.filter-chip-count {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 7px;
+  background: rgba(0, 0, 0, 0.07);
+  color: inherit;
+}
+
+.filter-chip-active .filter-chip-count {
+  background: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+}
+
+/* Quick Links Action Buttons Bar */
+.quick-links-wrap {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+  justify-content: center;
+}
+
+.quick-link-btn {
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  cursor: pointer;
+  user-select: none;
+}
+
+.quick-link-btn:hover {
+  transform: translateY(-2px);
+}
+
+.quick-link-template {
+  background: #f0fdfa;
+  color: #0f766e;
+  border: 1px solid #bbf0ea;
+}
+
+.quick-link-template:hover {
+  background: #e2f9f5;
+  border-color: #9ee6dd;
+  color: #0d6e67;
+  box-shadow: 0 6px 16px rgba(15, 118, 110, 0.08);
+}
+
+.quick-link-record {
+  background: #fff1f2;
+  color: #e11d48;
+  border: 1px solid #fecdd3;
+}
+
+.quick-link-record:hover {
+  background: #ffe4e6;
+  border-color: #fda4af;
+  color: #be123c;
+  box-shadow: 0 6px 16px rgba(225, 29, 72, 0.12);
+}
+

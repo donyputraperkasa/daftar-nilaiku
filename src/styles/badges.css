@@ -1,0 +1,100 @@
+/* Special High Score Badges & Glossy/Shimmer Animations */
+.score-badge-gold {
+  position: relative;
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 40%, #fde68a 100%);
+  border: 1.5px solid #f59e0b;
+  color: #78350f;
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.9);
+  animation: goldPulseGlow 3s ease-in-out infinite;
+  overflow: hidden;
+}
+
+.score-badge-green {
+  position: relative;
+  background: linear-gradient(135deg, #d1fae5 0%, #6ee7b7 45%, #10b981 100%);
+  border: 1.5px solid #059669;
+  color: #064e3b;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.55), 0 2px 6px rgba(5, 150, 105, 0.25), inset 0 2px 2px rgba(255, 255, 255, 0.9);
+  animation: greenPulseGlow 2.8s ease-in-out infinite;
+  overflow: hidden;
+}
+
+.score-badge-green::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 4%; right: 4%; height: 45%;
+  border-radius: 9999px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.05) 100%);
+  pointer-events: none;
+}
+
+.score-badge-gold-circle {
+  position: relative;
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 60%, #b45309 100%);
+  border: 1.5px solid #fef3c7;
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.6), 0 2px 4px rgba(217, 119, 6, 0.3);
+  animation: goldCircleGlow 2.5s ease-in-out infinite;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.score-badge-green-circle {
+  position: relative;
+  background: radial-gradient(circle at 32% 28%, #a7f3d0 0%, #34d399 28%, #10b981 62%, #047857 100%);
+  border: 1.5px solid #6ee7b7;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.65), 0 2px 4px rgba(4, 120, 87, 0.35), inset 0 1.5px 2px rgba(255, 255, 255, 0.9);
+  animation: greenCircleGlow 2.4s ease-in-out infinite;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.score-badge-green-circle::before {
+  content: '';
+  position: absolute;
+  top: 2px; left: 18%; width: 64%; height: 38%;
+  border-radius: 9999px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.1) 100%);
+  pointer-events: none;
+}
+
+.score-badge-gold::after,
+.score-badge-green::after,
+.score-badge-gold-circle::after,
+.score-badge-green-circle::after {
+  content: '';
+  position: absolute;
+  top: -50%; left: -80%; width: 45%; height: 200%;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.85) 50%, rgba(255, 255, 255, 0) 100%);
+  transform: rotate(25deg);
+  animation: goldShimmerSweep 2.8s infinite ease-in-out;
+  pointer-events: none;
+}
+
+@keyframes goldShimmerSweep { 0% { left: -80%; } 30%, 100% { left: 140%; } }
+@keyframes goldPulseGlow {
+  0%, 100% { box-shadow: 0 0 8px rgba(245, 158, 11, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.9); }
+  50% { box-shadow: 0 0 16px rgba(245, 158, 11, 0.65), 0 0 4px rgba(251, 191, 36, 0.5), inset 0 1px 1px rgba(255, 255, 255, 1); }
+}
+@keyframes greenPulseGlow {
+  0%, 100% { box-shadow: 0 0 8px rgba(16, 185, 129, 0.4), 0 2px 4px rgba(5, 150, 105, 0.2), inset 0 2px 2px rgba(255, 255, 255, 0.85); }
+  50% { box-shadow: 0 0 16px rgba(16, 185, 129, 0.8), 0 0 6px rgba(52, 211, 153, 0.7), inset 0 2px 3px rgba(255, 255, 255, 1); }
+}
+@keyframes goldCircleGlow {
+  0%, 100% { box-shadow: 0 0 8px rgba(245, 158, 11, 0.45), 0 2px 4px rgba(180, 83, 9, 0.25); transform: scale(1); }
+  50% { box-shadow: 0 0 16px rgba(245, 158, 11, 0.85), 0 0 8px rgba(251, 191, 36, 0.9), 0 2px 5px rgba(180, 83, 9, 0.4); transform: scale(1.08); }
+}
+@keyframes greenCircleGlow {
+  0%, 100% { box-shadow: 0 0 8px rgba(16, 185, 129, 0.5), 0 2px 4px rgba(4, 120, 87, 0.25), inset 0 1.5px 2px rgba(255, 255, 255, 0.85); transform: scale(1); }
+  50% { box-shadow: 0 0 16px rgba(16, 185, 129, 0.95), 0 0 8px rgba(52, 211, 153, 0.9), 0 2px 5px rgba(4, 120, 87, 0.4), inset 0 1.5px 3px rgba(255, 255, 255, 1); transform: scale(1.07); }
+}
+@keyframes crownFloat { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-2px) scale(1.15) rotate(4deg); } }
+@keyframes sparkleTwinkle { 0%, 100% { transform: scale(0.9) rotate(0deg); opacity: 0.8; } 50% { transform: scale(1.25) rotate(15deg); opacity: 1; } }
+
+.animate-crown-float { animation: crownFloat 2s ease-in-out infinite; }
+.animate-sparkle-twinkle { animation: sparkleTwinkle 2.2s ease-in-out infinite; }
+

@@ -1,6 +1,6 @@
-import { itWhatsappUrl } from "@/lib/constants/contact";
-import { Headphones, MessageCircle, X } from "lucide-react";
-import { useState } from "react";
+import { useState } from 'react';
+import { Headphones, MessageCircle, X } from 'lucide-react';
+import { itWhatsappUrl } from '../constants';
 
 export function FloatingContact() {
   const [isOpen, setIsOpen] = useState(false);
@@ -54,7 +54,7 @@ export function FloatingContact() {
           type="button"
           onClick={() => setIsOpen((value) => !value)}
           className="group relative flex h-16 w-16 items-center justify-center rounded-full border border-[#cfdcf1] bg-white shadow-xl shadow-[#1f4f8f]/20 transition hover:-translate-y-1 hover:border-[#1f4f8f] cursor-pointer"
-          aria-label={isOpen ? "Tutup menu bantuan" : "Buka menu bantuan"}
+          aria-label={isOpen ? 'Tutup menu bantuan' : 'Buka menu bantuan'}
         >
           <img
             src="/cat.png"

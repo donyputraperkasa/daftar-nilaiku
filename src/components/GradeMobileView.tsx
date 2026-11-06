@@ -1,21 +1,14 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { LayoutGrid, Table as TableIcon } from 'lucide-react';
-import { type StudentGrade, type ClassData } from '../data/gradesData';
+import type { GradeMobileViewProps } from '../types';
 import { StudentMobileCard } from './StudentMobileCard';
 
-interface GradeMobileViewProps {
-  students: { student: StudentGrade; classInfo: ClassData }[];
-  currentClassTitle: string;
-  onSelectStudent: (student: StudentGrade, classInfo: ClassData) => void;
-  babList: readonly { num: number; kuisKey: 'kuis1' | 'kuis2' | 'kuis3'; tugasKey: 'tugas1' | 'tugas2' | 'tugas3'; uhKey: 'uh1' | 'uh2' | 'uh3' }[];
-}
-
-export const GradeMobileView: React.FC<GradeMobileViewProps> = ({
+export function GradeMobileView({
   students,
   currentClassTitle,
   onSelectStudent,
   babList,
-}) => {
+}: GradeMobileViewProps) {
   const [viewMode, setViewMode] = useState<'card' | 'table'>('card');
 
   if (students.length === 0) {
@@ -91,10 +84,7 @@ export const GradeMobileView: React.FC<GradeMobileViewProps> = ({
                   <td className="py-3 px-3 text-center">
                     <button
                       type="button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        onSelectStudent(s, classInfo);
-                      }}
+                      onClick={(e) => { e.stopPropagation(); onSelectStudent(s, classInfo); }}
                       className="rounded-lg bg-[#eff6ff] text-[#2563eb] border border-[#bfdbfe] px-2.5 py-1 text-xs font-bold hover:bg-[#2563eb] hover:text-white transition cursor-pointer"
                     >
                       Rapor
@@ -108,4 +98,4 @@ export const GradeMobileView: React.FC<GradeMobileViewProps> = ({
       )}
     </div>
   );
-};
+}

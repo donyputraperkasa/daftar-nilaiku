@@ -1,7 +1,6 @@
-import React from 'react';
-import { ACADEMIC_INFO } from '../data/gradesData';
+import { ACADEMIC_INFO } from '../constants';
 
-export const Navbar: React.FC = () => {
+export function Navbar() {
   return (
     <header className="header-section">
       <img
@@ -17,4 +16,4 @@ export const Navbar: React.FC = () => {
       </p>
     </header>
   );
-};
+}

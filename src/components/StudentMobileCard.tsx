@@ -1,23 +1,14 @@
-import React from 'react';
 import { Eye } from 'lucide-react';
-import { type StudentGrade, type ClassData } from '../data/gradesData';
+import type { StudentMobileCardProps } from '../types';
 import { ScoreBadge } from './ScoreBadge';
 
-interface StudentMobileCardProps {
-  student: StudentGrade;
-  classInfo: ClassData;
-  index: number;
-  onSelect: () => void;
-  babList: readonly { num: number; kuisKey: 'kuis1' | 'kuis2' | 'kuis3'; tugasKey: 'tugas1' | 'tugas2' | 'tugas3'; uhKey: 'uh1' | 'uh2' | 'uh3' }[];
-}
-
-export const StudentMobileCard: React.FC<StudentMobileCardProps> = ({
+export function StudentMobileCard({
   student: s,
   classInfo,
   index,
   onSelect,
   babList,
-}) => {
+}: StudentMobileCardProps) {
   return (
     <div
       onClick={onSelect}
@@ -69,4 +60,4 @@ export const StudentMobileCard: React.FC<StudentMobileCardProps> = ({
       </div>
     </div>
   );
-};
+}
