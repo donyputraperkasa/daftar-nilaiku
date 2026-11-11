@@ -45,7 +45,7 @@ export const CLASSES_DATA: ClassData[] = [
       createSiswa('9-02', 2, 'Derry', 'L', [80, 75, 78, 80, 80, 76, _, _, _]),
       createSiswa('9-03', 3, 'Eca', 'P', [80, 80, 80, 55, 65, 0, _, _, _]),
       createSiswa('9-04', 4, 'Fajar', 'L', [90, 88, 100, 80, 85, 79, _, _, _]),
-      createSiswa('9-05', 5, 'Ugra', 'L', [_, 75, 80, 80, 80, 10, 75, _, _]),
+      createSiswa('9-05', 5, 'Ugra', 'L', [_, 75, 80, 80, 80, 75, _, _, _]),
     ],
   },
 ];
